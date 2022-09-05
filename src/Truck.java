@@ -1,27 +1,17 @@
-public class Truck extends ServiceStation{
+public class Truck extends Device implements Service {
 
-    private String modelName;
-    private int wheelsCount;
 
     public Truck(String modelName, int wheelsCount) {
-        this.modelName = modelName;
-        this.wheelsCount = wheelsCount;
+        super(modelName, wheelsCount);
     }
 
-    public String getModelName() {
-        return modelName;
+    @Override
+    public void check() {
+        System.out.println("Обслуживаем " + this.getModelName());
+        for (int i = 0; i < this.getWheelsCount(); i++) {
+            this.updateTyre();
+        }
+        this.checkEngine();
+        this.checkTrailer();
     }
-
-    public void setModelName(String modelName) {
-        this.modelName = modelName;
-    }
-
-    public int getWheelsCount() {
-        return wheelsCount;
-    }
-
-    public void setWheelsCount(int wheelsCount) {
-        this.wheelsCount = wheelsCount;
-    }
-
 }

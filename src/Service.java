@@ -1,8 +1,17 @@
 public interface Service {
 
-    void check(Bicycle bicycle);
 
-    void check(Car car);
+    default void updateTyre() {
+        System.out.println("Меняем покрышку");
+    }
 
-    void check(Truck truck);
- }
+    default void checkEngine() {
+        System.out.println("Проверяем двигатель");
+    }
+
+    default void checkTrailer() {
+        System.out.println("Проверяем прицеп");
+    }
+
+    void check();
+}
